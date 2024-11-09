@@ -41,6 +41,19 @@ function adicionarTarefa(){
         alert('Digite uma tarefa!');
     }
 }
+function editarTarefa(indice){
+    const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
+    const notaTarefa = prompt('Edite a tarefa: ', tarefas[indice]);
+
+    if(notaTarefa !== null && notaTarefa.trim() !== ' '){
+        tarefas[indice] = notaTarefa;
+
+        localStorage.setItem('tarefas', JSON.stringify(tarefas));
+        carregarTarefas();
+    }
+}
+
+
 
 
 carregarTarefas();
