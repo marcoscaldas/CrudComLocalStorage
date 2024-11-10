@@ -53,7 +53,14 @@ function editarTarefa(indice){
     }
 }
 
+//FUNCAO EXCLUIR
 
+function excluirTarefa(indice){
+    const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
+    tarefas.splice(indice, 1);
+    localStorage.setItem('tarefas', JSON.stringify(tarefas));
+    carregarTarefas();
+}
 
 
 carregarTarefas();
